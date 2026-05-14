@@ -23,11 +23,7 @@ const List = ({ token }) => {
 
   const removeProduct = async (id) => {
     try {
-      const response = await axios.post(
-        backendUrl + "/api/product/remove",
-        { id },
-        { headers: { token } }
-      );
+      const response = await axios.post(backendUrl + "/api/product/remove", { id }, { headers: { token } });
       if (response.data.success) {
         toast.success(response.data.message);
         await fetchList();
@@ -73,7 +69,7 @@ const List = ({ token }) => {
             </p>
             <p
               onClick={() => removeProduct(item._id)}
-              className="text-right md:text-center cursor-pointer text-lg"
+              className="text-right md:text-center cursor-pointer text-lg text-red-600"
             >
               X
             </p>

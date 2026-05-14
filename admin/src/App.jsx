@@ -10,12 +10,10 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
-export const currency = "$";
+export const currency = "₹";
 
 const App = () => {
-  const [token, setToken] = useState(
-    localStorage.getItem("token") ? localStorage.getItem("token") : ""
-  );
+  const [token, setToken] = useState(localStorage.getItem("token") ? localStorage.getItem("token") : "");
 
   useEffect(() => {
     localStorage.setItem("token", token);
