@@ -11,7 +11,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSubmitHandrle = async (event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
 
     try {
@@ -53,7 +53,7 @@ function Login() {
 
   return (
     <form
-      onSubmit={onSubmitHandrle}
+      onSubmit={onSubmitHandler}
       className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800"
     >
       <div className="inline-flex items-center gap-2 mb-2 mt-10">
@@ -89,21 +89,13 @@ function Login() {
         required
       />
       <div className="w-full flex justify-between text-sm mt-[-8px]">
-        {currentState === "Sing Up" ? null : (
-          <p className="cursor-pointer">Forgot your password?</p>
-        )}
+        {currentState === "Sing Up" ? null : <p className="cursor-pointer">Forgot your password?</p>}
         {currentState === "Sing Up" ? (
-          <p
-            onClick={() => setCurrentState("Login")}
-            className="cursor-pointer"
-          >
+          <p onClick={() => setCurrentState("Login")} className="cursor-pointer">
             Login Here
           </p>
         ) : (
-          <p
-            onClick={() => setCurrentState("Sing Up")}
-            className="cursor-pointer"
-          >
+          <p onClick={() => setCurrentState("Sing Up")} className="cursor-pointer">
             Create account
           </p>
         )}

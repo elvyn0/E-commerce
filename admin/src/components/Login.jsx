@@ -31,11 +31,9 @@ const Login = ({ setToken }) => {
         <h1 className="text-2xl font-bold mb-4">Admin Panel</h1>
         <form onSubmit={submitHandler}>
           <div className="mb-3 min-w-72">
-            <p className="text-sm font-medium text-gray-700 mb-2">
-              Email Adress
-            </p>
+            <p className="text-sm font-medium text-gray-700 mb-2">Email Adress</p>
             <input
-              className="rounded-md w-full px-3 py-2 border border-gray-300 outline-none"
+              className=" rounded-md w-full px-3 py-2 border border-gray-300 outline-none "
               type="email"
               placeholder="your@gmial.com"
               value={email}
@@ -54,10 +52,7 @@ const Login = ({ setToken }) => {
               required
             />
           </div>
-          <button
-            className="mt-2 w-full py-2 px-4 rounded-md text-white bg-black"
-            type="submit"
-          >
+          <button className="mt-2 w-full py-2 px-4 rounded-md text-white bg-black" type="submit">
             Login
           </button>
         </form>

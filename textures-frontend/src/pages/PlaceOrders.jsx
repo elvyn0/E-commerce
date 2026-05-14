@@ -128,7 +128,7 @@ function PlaceOrders() {
           type="text"
           placeholder="Email address"
           name="email"
-          value={formData.value}
+          value={formData.email}
         />
         <input
           onChange={onChageHandler}
