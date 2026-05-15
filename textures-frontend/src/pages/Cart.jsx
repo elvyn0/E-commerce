@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
-import { assets } from "../assets/assets";
+import assets from "../assets/assets";
 import CartTotal from "../components/CartTotal";
 
 function Cart() {
-  const { products, currency, cartItems, updateQuantity, navigate } =
-    useContext(ShopContext);
+  const { products, currency, cartItems, updateQuantity, navigate } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
@@ -36,9 +35,7 @@ function Cart() {
       </div>
       <div>
         {cartData.map((item, index) => {
-          const productData = products.find(
-            (product) => product._id === item._id
-          );
+          const productData = products.find((product) => product._id === item._id);
 
           return (
             <div
@@ -48,17 +45,13 @@ function Cart() {
               <div className="flex items-start gap-6">
                 <img className="w-16 sm:w-20" src={productData.image[0]} />
                 <div>
-                  <p className="text-xs sm:text-lg font-medium">
-                    {productData.name}
-                  </p>
+                  <p className="text-xs sm:text-lg font-medium">{productData.name}</p>
                   <div className="flex items-center gap-5 mt-2">
                     <p>
                       {currency}
                       {productData.price}
                     </p>
-                    <p className="px-2 sm:px-3 sm:py-1 border bg-slate-50">
-                      {item.size}
-                    </p>
+                    <p className="px-2 sm:px-3 sm:py-1 border bg-slate-50">{item.size}</p>
                   </div>
                 </div>
               </div>
@@ -66,11 +59,7 @@ function Cart() {
                 onChange={(e) =>
                   e.target.value === "" || e.target.value === "0"
                     ? null
-                    : updateQuantity(
-                        item._id,
-                        item.size,
-                        Number(e.target.value)
-                      )
+                    : updateQuantity(item._id, item.size, Number(e.target.value))
                 }
                 className="border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1"
                 type="number"
@@ -91,10 +80,7 @@ function Cart() {
         <div className="w-full sm:w-[450px]">
           <CartTotal />
           <div className="w-full text-end">
-            <button
-              onClick={() => navigate("/placeorder")}
-              className="bg-black text-white  text-sm my-8 px-8 py-3"
-            >
+            <button onClick={() => navigate("/placeorder")} className="bg-black text-white  text-sm my-8 px-8 py-3">
               PROCEED TO CHECKOUT
             </button>
           </div>

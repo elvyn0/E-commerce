@@ -30,9 +30,3 @@ dist-ssr
 
 
 # .gitignore (in the root of your project)
-
-# Ignore common image file extensions inside the assets folder
-src/assets/*.png
-src/assets/*.jpg
-src/assets/*.jpeg
-src/assets/*.svg

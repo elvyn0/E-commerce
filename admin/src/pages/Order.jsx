@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { backendUrl, currency } from "../App";
+import { currency } from "../App";
+import backendUrl from "../api/backendUrl";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { assets } from "../assets/assets";
@@ -31,7 +32,7 @@ const Order = ({ token }) => {
       const response = await axios.patch(
         backendUrl + "/api/order/status",
         { orderId, status: event.target.value },
-        { headers: { token } }
+        { headers: { token } },
       );
       if (response.data.success) {
         toast.success(response.data.message);

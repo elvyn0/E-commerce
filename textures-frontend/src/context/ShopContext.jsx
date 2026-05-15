@@ -6,7 +6,7 @@ import axios from "axios";
 export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
-  const currency = "$";
+  const currency = "₹";
   const delivery_fee = 10;
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -23,9 +23,7 @@ const ShopContextProvider = (props) => {
       return;
     }
     let cartData = structuredClone(cartItems);
-    {
-      /*if we  have product and produc , size entry */
-    }
+
     if (cartData[itemId]) {
       if (cartData[itemId][size]) {
         cartData[itemId][size] += 1;
@@ -84,29 +82,6 @@ const ShopContextProvider = (props) => {
     }
   };
 
-  {
-    /** 
-      const getCartAmount = () => {
-    let totalAmount = 0;
-
-    for (const items in cartItems) {
-      let itemInfo = products.find((product) => product._id === items);
-
-      for (const item in cartItems[items]) {
-        try {
-          if (cartItems[items][item] > 0) {
-            totalAmount += itemInfo.price * cartItems[items][item];
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    }
-    return totalAmount;
-  }
-    */
-  }
-
   const getCartAmount = () => {
     if (!products || products.length === 0) return 0;
 
@@ -145,7 +120,6 @@ const ShopContextProvider = (props) => {
       toast.error(error.message);
     }
   };
-  console.log(products);
 
   const getUserCart = async (token) => {
     try {

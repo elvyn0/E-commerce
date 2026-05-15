@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import axios from "axios";
-import { backendUrl } from "../App";
+import backendUrl from "../api/backendUrl";
 import { toast } from "react-toastify";
 
 const Add = ({ token }) => {
@@ -13,8 +13,8 @@ const Add = ({ token }) => {
   const [isUploading, setIsUploading] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescrition] = useState("");
-  const [category, setCategory] = useState("Men");
-  const [subCategory, setSubCategory] = useState("Topwear");
+  const [category, setCategory] = useState("men");
+  const [subCategory, setSubCategory] = useState("topwear");
   const [price, setPrice] = useState("");
   const [sizes, setSizes] = useState([]);
   const [bestseller, setBestseller] = useState(false);

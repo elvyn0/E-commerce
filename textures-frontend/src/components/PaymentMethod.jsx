@@ -1,5 +1,5 @@
 import Title from "./Title";
-import { assets } from "../assets/assets";
+import assets from "../assets/assets";
 import { toast } from "react-toastify";
 
 function PaymentMethod({ method, setMethod }) {

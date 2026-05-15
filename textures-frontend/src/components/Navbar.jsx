@@ -1,18 +1,11 @@
 import React, { useContext, useState } from "react";
-import { assets } from "../assets/assets";
+import assets from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { ShopContext } from "../context/ShopContext";
 
 function Navbar() {
-  const {
-    setShowSearch,
-    getCartCount,
-    setToken,
-    navigate,
-    token,
-    setCartItems,
-  } = useContext(ShopContext);
+  const { setShowSearch, getCartCount, setToken, navigate, token, setCartItems } = useContext(ShopContext);
   const [visible, setVisible] = useState(false);
 
   const logout = () => {
@@ -47,11 +40,7 @@ function Navbar() {
       </ul>
       <div className="flex items-center gap-6">
         <Link to="/collection">
-          <img
-            onClick={() => setShowSearch(true)}
-            src={assets.search_icon}
-            className="w-5 cursor-pointer"
-          />
+          <img onClick={() => setShowSearch(true)} src={assets.search_icon} className="w-5 cursor-pointer" />
         </Link>
         <div className="group relative">
           <img
@@ -65,10 +54,7 @@ function Navbar() {
             <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded ">
                 <p className="cursor-pointer hover:text-black">My Profile</p>
-                <p
-                  onClick={() => navigate("/orders")}
-                  className="cursor-pointer hover:text-black"
-                >
+                <p onClick={() => navigate("/orders")} className="cursor-pointer hover:text-black">
                   Orders
                 </p>
                 <p onClick={logout} className="cursor-pointer hover:text-black">
@@ -84,11 +70,7 @@ function Navbar() {
             {getCartCount()}
           </p>
         </Link>
-        <img
-          onClick={() => setVisible(true)}
-          className="w-5 cursor-pointer sm:hidden"
-          src={assets.menu_icon}
-        />
+        <img onClick={() => setVisible(true)} className="w-5 cursor-pointer sm:hidden" src={assets.menu_icon} />
       </div>
       {/* Sidebar menu for small screens */}
       <div
@@ -97,39 +79,20 @@ function Navbar() {
         }`}
       >
         <div className="flex flex-col text-gray-600">
-          <div
-            onClick={() => setVisible(false)}
-            className="flex items-center gap-4 p-3 cursor-pointer"
-          >
+          <div onClick={() => setVisible(false)} className="flex items-center gap-4 p-3 cursor-pointer">
             <img src={assets.dropdown_icon} className="h-4 rotate-180" />
             <p>Back</p>
           </div>
-          <NavLink
-            onClick={() => setVisible(false)}
-            className="py-2 pl-6 border"
-            to="/"
-          >
+          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to="/">
             HOME
           </NavLink>
-          <NavLink
-            onClick={() => setVisible(false)}
-            className="py-2 pl-6 border"
-            to="/collection"
-          >
+          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to="/collection">
             COLLECTION
           </NavLink>
-          <NavLink
-            onClick={() => setVisible(false)}
-            className="py-2 pl-6 border"
-            to="/about"
-          >
+          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to="/about">
             ABOUT
           </NavLink>
-          <NavLink
-            onClick={() => setVisible(false)}
-            className="py-2 pl-6 border"
-            to="/contact"
-          >
+          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to="/contact">
             CONTACT
           </NavLink>
         </div>

@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "./Title";
-import { products } from "../assets/assets";
 
 function CartTotal() {
-  const { currency, delivery_fee, getCartAmount } = useContext(ShopContext);
+  const { currency, delivery_fee, getCartAmount, products } = useContext(ShopContext);
 
   if (!products || products.length === 0) {
     return <dv>Loading cart totals...</dv>;
